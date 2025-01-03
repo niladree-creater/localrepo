@@ -1,137 +1,89 @@
-/* General Styles */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: #333;
+    overflow-x: hidden;
+    transition: background 0.5s ease-in-out;
+}
 
-:root {
-    --primary-color: #333;
-    --secondary-color: #ff6347;
-    --background-color: #b30b0b;
-    --accent-color: #3723a5;
-    --text-color: #fff;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease;
-  }
-  
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, #b30b0b, #ff6347);
-    opacity: 0.5;
-    z-index: -1;
-  }
-  
-  /* Header Styles */
-  
-  header {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    padding: 20px 0;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
-  
-  header h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: bold;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-  }
-  
-  nav ul li {
-    margin: 0 15px;
-  }
-  
-  nav a {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-  }
-  
-  nav a:hover {
-    color: var(--secondary-color);
-  }
-  
-  /* Main Content Styles */
-  
-  main {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
-  
-  section {
-    margin-bottom: 20px;
-  }
-  
-  section h2 {
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 10px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  section p {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  /* Footer Styles */
-  
-  footer {
-    background-color: var(--primary-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    z-index: 1;
-  }
-  
-  footer p {
-    margin-bottom: 10px;
-  }
-  
-  /* Media Queries */
-  
-  @media (max-width: 768px) {
-    main {
-      max-width: 600px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    main {
-      max-width: 400px;
-    }
-    nav ul {
-      flex-direction: column;
-    }
-    nav ul li {
-      margin: 10px 0;
-    }
-  }
+header {
+    background-color: #6200ea;
+    color: white;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: headerSlide 1.5s ease-in-out;
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.slide-in {
+    animation: slideIn 1.5s ease-in-out;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 80%;
+    transition: transform 0.3s;
+}
+
+.slide-in:hover {
+    transform: scale(1.05);
+}
+
+.bounce button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #03dac6;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.bounce button:hover {
+    transform: scale(1.15);
+    background-color: #018786;
+}
+
+.zoom-in {
+    animation: zoomIn 1.5s ease-in-out;
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    color: #6200ea;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
+}
+
+@keyframes headerSlide {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
